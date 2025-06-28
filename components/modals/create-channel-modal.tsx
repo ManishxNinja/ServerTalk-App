@@ -57,7 +57,7 @@ export function CreateChannelModal() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      type: channelType || ChannelType.TEXT
+      type: channelType || ChannelType.Text
     }
   });
 
@@ -65,7 +65,7 @@ export function CreateChannelModal() {
     if (channelType) {
       form.setValue("type", channelType);
     } else {
-      form.setValue("type", ChannelType.TEXT);
+      form.setValue("type", ChannelType.Text);
     }
   }, [channelType, form]);
 
@@ -158,7 +158,7 @@ export function CreateChannelModal() {
               />
             </div>
             <DialogFooter className="bg-gray-100 px-6 py-4">
-              <Button disabled={isLoading} variant="primary">
+              <Button disabled={isLoading} variant="destructive">
                 Create
               </Button>
             </DialogFooter>

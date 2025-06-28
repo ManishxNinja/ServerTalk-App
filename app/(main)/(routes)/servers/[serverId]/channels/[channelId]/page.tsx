@@ -1,5 +1,5 @@
 import React from "react";
-import { redirectToSignIn } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { ChannelType } from "@prisma/client";
 
@@ -18,10 +18,12 @@ interface ChannelIdPageProps {
 }
 
 export default async function ChannelIdPage({
-  params: { channelId, serverId }
+  params
 }: ChannelIdPageProps) {
   const profile = await currentProfile();
-
+  const {redirectToSignIn} = await auth();
+  const { serverId,channelId } = await params;
+  
   if (!profile) return redirectToSignIn();
 
   const channel = await db.channel.findUnique({
@@ -29,7 +31,7 @@ export default async function ChannelIdPage({
   });
 
   const member = await db.member.findFirst({
-    where: { serverId: serverId, profileId: profile.id }
+    where: { serverId: serverId, profileId: profile?.id }
   });
 
   if (!channel || !member) return redirect("/");

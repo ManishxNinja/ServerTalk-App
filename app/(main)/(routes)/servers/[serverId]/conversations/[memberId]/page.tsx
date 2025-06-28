@@ -1,5 +1,5 @@
 import React from "react";
-import { redirectToSignIn } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 import { currentProfile } from "@/lib/current-profile";
@@ -21,10 +21,12 @@ interface MemberIdPageProps {
 }
 
 export default async function MemberIdPage({
-  params: { memberId, serverId },
+  params,
   searchParams: { video }
 }: MemberIdPageProps) {
   const profile = await currentProfile();
+  const {redirectToSignIn} = await auth();
+  const { memberId, serverId } = await params;
 
   if (!profile) return redirectToSignIn();
 

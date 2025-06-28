@@ -1,4 +1,4 @@
-import { redirectToSignIn } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 import { currentProfile } from "@/lib/current-profile";
@@ -12,15 +12,18 @@ interface ServerIdPageProps {
 
 export default async function ServerIdPage({ params }: ServerIdPageProps) {
   const profile = await currentProfile();
-
+  const {redirectToSignIn} = await auth();
+  const val = await params;
+  const serverId = val.serverId;
+  
   if (!profile) return redirectToSignIn();
 
   const server = await db.server.findUnique({
     where: {
-      id: params.serverId,
+      id: serverId,
       member: {
         some: {
-          profileId: profile.id
+          profileId: profile?.id
         }
       }
     },
@@ -38,5 +41,5 @@ export default async function ServerIdPage({ params }: ServerIdPageProps) {
 
   if (initialChannel?.name !== "general") return null;
 
-  return redirect(`/servers/${params.serverId}/channels/${initialChannel?.id}`);
+  return redirect(`/servers/${serverId}/channels/${initialChannel?.id}`);
 }

@@ -1,3 +1,5 @@
+const { clear } = require('console');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config) => {
@@ -10,8 +12,7 @@ const nextConfig = {
   },
   images: {
     domains: ["uploadthing.com"]
-  },
-  swcMinify: false
+  }
 };
 
 module.exports = nextConfig;

@@ -1,5 +1,5 @@
 
-import { redirectToSignIn } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 import { currentProfile } from "@/lib/current-profile";
@@ -12,9 +12,11 @@ interface InviteCodPageProps {
 }
 
 export default async function InviteCodPage({
-  params: { inviteCode }
+  params
 }: InviteCodPageProps) {
   const profile = await currentProfile();
+  const {redirectToSignIn} = await auth();
+  const inviteCode = await params.inviteCode
 
   if (!profile) return redirectToSignIn();
 
@@ -25,7 +27,7 @@ export default async function InviteCodPage({
       inviteCode,
       member: {
         some: {
-          profileId: profile.id
+          profileId: profile?.id
         }
       }
     }
@@ -39,7 +41,7 @@ export default async function InviteCodPage({
     },
     data: {
       member: {
-        create: [{ profileId: profile.id }]
+        create: [{ profileId: profile?.id! }]
       }
     }
   });
