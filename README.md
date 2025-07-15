@@ -1,28 +1,95 @@
-# FullStack Collaboration App: Next.js 13, React, Socket.io, Prisma, Tailwind, MySQL & TypeScript.
+# 💬 Discord Clone – FullStack Collaboration App
+
+A full-featured real-time collaboration platform (Discord Clone) built using:
+
+**Next.js 13**, **React**, **Socket.io**, **Prisma**, **MySQL**, **TailwindCSS**, **TypeScript**, and **Clerk** for authentication.
+
+---
+
+## ✨ Features
+
+- ✅ Client-side validation with `react-hook-form`
+- ✅ POST, DELETE, GET routes via Next.js route handlers
+- ✅ Real-time messaging with `Socket.io`
+- ✅ File sharing via `UploadThing`
+- ✅ Edit/Delete messages (live for all users)
+- ✅ Create Text, Voice, and Video channels
+- ✅ 1-on-1 private messaging
+- ✅ 1-on-1 video calling
+- ✅ Role management (Guest / Moderator)
+- ✅ Invite link generation & invite system
+- ✅ Infinite scroll for chat (using `@tanstack/react-query`)
+- ✅ Server creation and avatar customization
+- ✅ Beautiful responsive UI (TailwindCSS + ShadcnUI)
+- ✅ Light / Dark mode toggle
+- ✅ WebSocket fallback with polling
+- ✅ Database ORM with Prisma
+- ✅ MySQL DB hosted on PlanetScale
+- ✅ Authentication with Clerk
+
+---
+
+## 📸 Preview
+
+### 🧩 Server Creation and Customization
+![Create Server](./public/Add_server.png))
 
 
+---
 
-Features:
+### 🖥️ Chat Interface
+- Dark & Light modes
+- Rich emoji support  
+![Dark Mode](./public/Create%20server.png)
+![Light Mode](./public/Light_Mode.png)
 
-- Client form validation and handling using react-hook-form
-- POST, DELETE, and GET routes in route handlers (app/api & pages)
-- Real-time messaging using Socket.io
-- Send attachments as messages using UploadThing
-- Delete & Edit messages in real time for all users
-- Create Text, Audio and Video call Channels
-- 1:1 conversation between members
-- 1:1 video calls between members
-- Member management (Kick, Role change Guest / Moderator)
-- Unique invite link generation & full working invite system
-- Infinite loading for messages in batches of 10 (tanstack/query)
-- Server creation and customization
-- Beautiful UI using TailwindCSS and ShadcnUI
-- Full responsivity and mobile UI
-- Light / Dark mode
-- Websocket fallback: Polling with alerts
-- ORM using Prisma
-- MySQL database using Planetscale
-- Authentication with Clerk
+---
+
+### 🔍 Channel & Member Search
+Quick navigation using fuzzy search.
+![Search UI](./public/SearchingIn%20server.png)
+
+---
+
+### 🔐 Sign In with Clerk
+![Sign In](./public/SignIN%20.png)
+
+---
+
+### 🎥 Video and 🎙️ Voice Calling
+- Camera, mic, screen share & chat  
+![Video Call](./public/Video_call.png)
+![Voice Call](./public/voice%20_call.png)
+
+---
+
+## 🧰 Tech Stack
+
+- **Frontend:** React, Next.js 13 (App Router), TailwindCSS, ShadcnUI
+- **Backend:** Prisma, MySQL, Next.js Route Handlers
+- **Real-time:** Socket.io
+- **Auth:** Clerk
+- **Media:** LiveKit
+- **Storage:** UploadThing
+- **Database:** PlanetScale (MySQL)
+
+---
+
+## ⚙️ Prerequisites
+
+- Node.js **v18.x.x**
+- A MySQL-compatible DB (PlanetScale recommended)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/nayak-nirmalya/discord-clone.git
+cd discord-clone
+
 
 ### Prerequisites
 
