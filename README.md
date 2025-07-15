@@ -1,4 +1,4 @@
-# 💬 Discord Clone – FullStack Collaboration App
+# 💬 ServerTalk – FullStack Collaboration App
 
 A full-featured real-time collaboration platform (Discord Clone) built using:
 
