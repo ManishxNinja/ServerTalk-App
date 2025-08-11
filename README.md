@@ -4,6 +4,8 @@ A full-featured real-time collaboration platform (Discord Clone) built using:
 
 **Next.js 13**, **React**, **Socket.io**, **Prisma**, **MySQL**, **TailwindCSS**, **TypeScript**, and **Clerk** for authentication.
 
+This is the finalized version here to see previous commits plz refer ::-> https://github.com/ManishxNinja/Collaboration-App/
+
 ---
 
 ## ✨ Features
